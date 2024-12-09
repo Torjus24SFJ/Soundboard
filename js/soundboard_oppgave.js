@@ -1,6 +1,6 @@
 //*1. Create an external JSON or js file containing information about the sounds you want to use. Import the file in here:  */
 
-loadSounds();
+let currentAudio = null; // Makes sure only one audio clip plays at a time
 
 async function loadSounds() {
   try {
@@ -14,6 +14,8 @@ async function loadSounds() {
     console.error("Error fetching sounds:", error);
   }
 }
+
+loadSounds();
 
 //*1.1. Catch the html element with id drumkit: */
 const drumkit = document.getElementById("drumkit");
@@ -37,25 +39,32 @@ function createSoundButton(sound) {
   //actives when pressing a keyboard key (first parameter of the eventlistener)
   //runs a nameless function with parameter event (refering to the key pressed)
   document.addEventListener("keydown", (event) => {
-    audio.pause();
     if (event.key === sound.key) {
+      if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
       audio.play();
+      currentAudio = audio; // Update currently playing audio
     }
   });
   //2.4. OPTIONAL. If you used keydown as the first parameter in the previous eventlistener, add another eventlistner to the whole page that:
   //actives when releasing a keyboard key (first parameter of the eventlistener)
   document.addEventListener("keyup", (event) => {
-    if (event.key === sound.key) {
-      // 2.4.1. inside of the eventlistner:
-      // pauses the audio element
-      audio.pause();
-      // sets the current time of the audio element to 0
-      audio.currentTime = 0;
+    if (event.key === sound.key && currentAudio === audio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null; // Clear currentAudio when stopped
     }
   });
   //2.5. OPTIONAL. Create an eventlistener for clicking. Also create a logic for preventing more sounds to be played at the same time
   button.addEventListener("click", () => {
+    if(currentAudio){
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
         audio.play();
+        currentAudio = audio; // Update currently playing audio
   });
   //2.6. append the created button and audio element to the html element you refered in 1.
   drumkit.appendChild(button);

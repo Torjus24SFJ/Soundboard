@@ -6,7 +6,9 @@ body {
   font-family: sans-serif;
   background-image: url(../images/dj-booth.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover;
+  min-height: 100vw;
+  z-index: -1;
 }
 
 #drumkit {
