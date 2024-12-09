@@ -4,7 +4,7 @@ let currentAudio = null; // Makes sure only one audio clip plays at a time
 
 async function loadSounds() {
   try {
-    const response = await fetch("../data/Sound-file.json");
+    const response = await fetch("./data/Sound-file.json");
     const sounds = await response.json();
     //*1.3. Write a console log for the fetched sounds so you know how the structure is and how you can use it */
     console.log(sounds);
