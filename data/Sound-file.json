@@ -1,8 +1,17 @@
-{
-    "soundFiles": [
-      { "file": "pathTofile", "key": "keyboardKeyTobePressed" },
-      { "file": "pathTofile", "key": "keyboardKeyTobePressed" },
-      { "file": "pathTofile", "key": "keyboardKeyTobePressed" },
-      { "file": "pathTofile", "key": "keyboardKeyTobePressed" }
-    ]
-  }
+[
+    {
+        "key": "1",
+        "sound": "../assets/vine-boom.mp3",
+        "label": "Vine Boom"
+    },
+    {
+        "key": "2",
+        "sound": "../assets/China-song.mp3",
+        "label": "China Song"
+    },
+    {
+        "key": "3",
+        "sound": "../assets/Spongebob-trance.mp3",
+        "label": "Spongebob Trance"
+    }
+]

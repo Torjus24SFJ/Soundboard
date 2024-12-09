@@ -1,1 +1,31 @@
-/* Add styles here to make the soundboard actually look like a soundboard! */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 4rem;
+  font-family: sans-serif;
+  background-image: url(../images/dj-booth.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#drumkit {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+h1 {
+  color: #9520c4;
+  text-shadow: #000 1px 0 10px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
