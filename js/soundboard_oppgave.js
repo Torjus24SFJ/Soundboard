@@ -38,25 +38,42 @@ function createSoundButton(sound) {
   //2.3. add an eventlistner to the whole page that:
   //actives when pressing a keyboard key (first parameter of the eventlistener)
   //runs a nameless function with parameter event (refering to the key pressed)
-  document.addEventListener("keydown", (event) => {
-    if (event.key === sound.key) {
-      if (currentAudio && currentAudio !== audio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-      }
-      audio.play();
-      currentAudio = audio; // Update currently playing audio
+  document.addEventListener('keypress', (e) => {
+    if (e.key === sound.key){ 
+      if (currentAudio && currentAudio !== audio) 
+        {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+        }
+        audio.play();
+        currentAudio = audio;
     }
-  });
+  })
+
+  // Old code for key presses up down:
+ 
+  // document.addEventListener("keydown", (event) => {
+  //   if (event.key === sound.key) {
+  //     if (currentAudio && currentAudio !== audio) {
+  //       currentAudio.pause();
+  //       currentAudio.currentTime = 0;
+  //     }
+  //     audio.play();
+  //     currentAudio = audio; // Update currently playing audio
+  //   }
+  // });
+
   //2.4. OPTIONAL. If you used keydown as the first parameter in the previous eventlistener, add another eventlistner to the whole page that:
   //actives when releasing a keyboard key (first parameter of the eventlistener)
-  document.addEventListener("keyup", (event) => {
-    if (event.key === sound.key && currentAudio === audio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
-      currentAudio = null; // Clear currentAudio when stopped
-    }
-  });
+  
+  // document.addEventListener("keyup", (event) => {
+  //   if (event.key === sound.key && currentAudio === audio) {
+  //     currentAudio.pause();
+  //     currentAudio.currentTime = 0;
+  //     currentAudio = null; // Clear currentAudio when stopped
+  //   }
+  // });
+
   //2.5. OPTIONAL. Create an eventlistener for clicking. Also create a logic for preventing more sounds to be played at the same time
   button.addEventListener("click", () => {
     if(currentAudio){
