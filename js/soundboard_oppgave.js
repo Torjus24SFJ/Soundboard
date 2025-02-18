@@ -2,7 +2,7 @@ let currentAudio = null;
 
 async function loadSounds() {
   try {
-    const response = await fetch("./data/Sound-file.json");
+    const response = await fetch("../data/Sound-file.json/");
     const sounds = await response.json();
     console.log(sounds);
     sounds.forEach(createSoundButton);
