@@ -2,7 +2,7 @@ let currentAudio = null;
 
 async function loadSounds() {
   try {
-    const response = await fetch("../data/Sound-file.json/");
+    const response = await fetch("./data/Sound-file.json");
     const sounds = await response.json();
     sounds.forEach(createSoundButton);
   } catch (error) {
@@ -22,6 +22,7 @@ function createSoundButton(sound) {
   const audio = document.createElement("audio");
   audio.src = sound.sound;
   audio.id = sound.key;
+
   document.addEventListener('keypress', (e) => {
     if (e.key === sound.key){ 
       if (currentAudio && currentAudio !== audio) 
