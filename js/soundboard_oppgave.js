@@ -16,11 +16,10 @@ const drumkit = document.getElementById("drumkit");
 
 function createSoundButton(sound) {
   const button = document.createElement("button");
-  const randomColor = `hsl(${Math.random() * 360}, 100%, 75%)`;
-  const audio = document.createElement("audio");
-  
   button.textContent = `${sound.label} (${sound.key})`;
+  const randomColor = `hsl(${Math.random() * 360}, 100%, 75%)`;
   button.style.backgroundColor = randomColor;
+  const audio = document.createElement("audio");
   audio.src = sound.sound;
   audio.id = sound.key;
   document.addEventListener('keypress', (e) => {
