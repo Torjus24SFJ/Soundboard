@@ -36,20 +36,13 @@ function createSoundButton(sound) {
   })
 
   button.addEventListener("click", () => {
-    console.log("Trying to play:", audio.src);
-    
-    if (currentAudio) {
+    if(currentAudio){
         currentAudio.pause();
         currentAudio.currentTime = 0;
     }
-
-    audio.play().catch(error => {
-        console.error("Playback error:", error);
-    });
-
-    currentAudio = audio;
-});
-
+        audio.play();
+        currentAudio = audio;
+  });
   drumkit.appendChild(button);
   drumkit.appendChild(audio);
 }
