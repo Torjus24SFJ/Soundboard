@@ -1,7 +1,7 @@
 [
     {
         "key": "1",
-        "sound": "https://torjus24sfj.github.io/Soundboard/assets/vine-boom.mp3",
+        "sound": "../assets/vine-boom.mp3",
         "label": "Vine Boom"
     },
     {
